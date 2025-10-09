@@ -1,13 +1,10 @@
 #include <stdio.h>
-#include <stdbool.h>
+int main (){
 
-int main() {
-  bool isLoggedIn = true;
-  bool isAdmin = false;
+    int age= 25; // init is keywords, age is an identifier
+    float marks=95.9; //  float is keywords, marks is idendifier 
+    printf("%d\n", age); 
+    printf("%.2f\n", marks);
+    return 0 ; // return is keyword
 
-  printf("Regular user: %s\n", (isLoggedIn && !isAdmin) ? "true" : "false");
-  printf("Has access: %s\n", (isLoggedIn || isAdmin) ? "true" : "false");
-  printf("Not logged in: %s\n", (!isLoggedIn) ? "true" : "false");
-
-  return 0;
 }

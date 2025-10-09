@@ -1,10 +1,13 @@
 #include <stdio.h>
-int main() {
-  int passwordLength = 5;
+#include <stdbool.h>
 
-  printf("%d\n", passwordLength >= 8); // 0 (false), too short
-  printf("%d\n", passwordLength < 8);  // 1 (true), needs more characters
+int main() {
+  bool isLoggedIn = true;
+  bool isAdmin = false;
+
+  printf("Regular user: %s\n", (isLoggedIn && !isAdmin) ? "true" : "false");
+  printf("Has access: %s\n", (isLoggedIn || isAdmin) ? "true" : "false");
+  printf("Not logged in: %s\n", (!isLoggedIn) ? "true" : "false");
 
   return 0;
 }
-  

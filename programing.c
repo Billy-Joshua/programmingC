@@ -6,7 +6,7 @@ int main (){
       // Input 5 subjects
     printf("enter scores for 5 subject:\n");
     printf("math :"); scanf("%d", &math);
-   printf("Physics: "); scanf("%d", &physics);d
+   printf("Physics: "); scanf("%d", &physics);
     printf("English: "); scanf("%d", &english);
     printf("Programming: "); scanf("%d", &programming);
     printf("Statistics: "); scanf("%d", &statistics);
@@ -22,5 +22,4 @@ int main (){
     printf("Sum = %d\n", sum);
     printf("Average = %.2f\n", avg);
 
-  
 }

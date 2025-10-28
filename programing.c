@@ -1,55 +1,43 @@
 #include <stdio.h>
 
-void pattern1() {
-    for(int i = 5; i >= 1; i--) {
-        for(int j = 1; j <= i; j++) printf("* ");
-        printf("\n");
-    }
+int str_len(char *s) {
+    int len = 0; while(s[len]) len++; return len;
 }
 
-void pattern2() {
-    for(int i = 1; i <= 5; i++) {
-        for(int j = 5; j > i; j--) printf("  ");
-        for(int j = 1; j <= i; j++) printf("%d ", i+j-1);
-        for(int j = i-1; j >= 1; j--) printf("%d ", i+j-1);
-        printf("\n");
-    }
+void str_copy(char *dest, char *src) {
+    while((*dest++ = *src++));
 }
 
-void pattern3() {
-    for(int i = 1; i <= 5; i++) {
-        for(int j = 5; j > i; j--) printf("  ");
-        for(int j = 1; j <= 2*i-1; j++) printf("* ");
-        printf("\n");
-    }
+void str_cat(char *dest, char *src) {
+    while(*dest) dest++;
+    while((*dest++ = *src++));
 }
 
-void pattern4() {
-    for(int i = 5; i >= 1; i--) {
-        for(int j = 5; j > i; j--) printf("  ");
-        for(int j = 1; j <= 2*i-1; j++) printf("* ");
-        printf("\n");
-    }
+int str_cmp(char *a, char *b) {
+    while(*a && *b && *a == *b) { a++; b++; }
+    return *a - *b;
 }
 
-void pattern5() {
-    int coef = 1;
-    for(int i = 0; i < 6; i++) {
-        for(int j = 5; j > i; j--) printf("  ");
-        for(int j = 0; j <= i; j++) {
-            if(j == 0 || i == 0) coef = 1;
-            else coef = coef * (i-j+1) / j;
-            printf("%4d", coef);
-        }
-        printf("\n");
+void str_rev(char *s) {
+    int i = 0, j = str_len(s) - 1;
+    char temp;
+    while(i < j) {
+        temp = s[i]; s[i] = s[j]; s[j] = temp;
+        i++; j--;
     }
 }
 
 int main() {
-    printf("i.\n"); pattern1();
-    printf("\nii.\n"); pattern2();
-    printf("\niii.\n"); pattern3();
-    printf("\niv.\n"); pattern4();
-    printf("\nv.\n"); pattern5();
+    char s1[50] = "Hello", s2[50], s3[50];
+
+    printf("Length: %d\n", str_len(s1));
+    str_copy(s2, s1);
+    printf("Copy: %s\n", s2);
+    str_cat(s2, " World");
+    printf("Concat: %s\n", s2);
+    printf("Compare: %d\n", str_cmp("abc", "abd"));
+    str_rev(s1);
+    printf("Reverse: %s\n", s1);
+
     return 0;
 }

@@ -1,2 +1,2 @@
 # programmingC
-way to C++
+C++

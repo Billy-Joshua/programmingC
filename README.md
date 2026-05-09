@@ -1,2 +1,1 @@
-# programmingC
-C++
+# programming with C 
